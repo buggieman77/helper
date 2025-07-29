@@ -5,6 +5,7 @@ desktop.ini
 # ========== kecuali public/js/app/modules/ ==========
 !pertemuan21/
 pertemuan21/*
+
 !pertemuan21/public/
 pertemuan21/public/*
 !pertemuan21/public/js/
@@ -15,12 +16,10 @@ pertemuan21/public/js/app/*
 
 # ========== kecuali app/helper/ and app/helper/ ==========
 
-!pertemuan21/
-pertemuan21/*
 !pertemuan21/app/
 pertemuan21/app/*
 !pertemuan21app/helper/
-!pertemuan21/app/helper/
+
 
 # ========== Specific config files ==========
 !/.gitignore
