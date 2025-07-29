@@ -1,6 +1,4 @@
-window.bustCache = (url) => url + "?t=" + Date.now();
-window.getBaseUrl = "http://localhost/tutorial/pertemuan21/";
-window.getInitUrl = bustCache(getBaseUrl + "public/js/app/modules/init.js");
+import { getInitUrl } from "./app/config/config";
 
 try {
   const Url = await fetch(getInitUrl, { method: "HEAD", cache: "no-cache" });
