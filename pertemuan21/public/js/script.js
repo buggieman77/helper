@@ -1,10 +1,11 @@
-import { getInitUrl } from "./app/config/config";
+await import("./app/config/path.js");
+const appUrl = Path.bustCache(Path.getAppUrl);
 
 try {
-  const Url = await fetch(getInitUrl, { method: "HEAD", cache: "no-cache" });
+  const Url = await fetch(appUrl, { method: "HEAD", cache: "no-cache" });
   if (!Url.ok) throw new Error("invalid url");
-  const { App } = await import(getInitUrl);
+  const { default: App } = await import(appUrl);
   new App();
 } catch (error) {
-  console.error(getInitUrl + error);
+  console.warn(appUrl + " " + error);
 }
