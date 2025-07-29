@@ -21,6 +21,7 @@ pertemuan21/public/js/app/modules/helper.js
 !pertemuan21/app/
 pertemuan21/app/*
 !pertemuan21app/helper/
+!pertemuan21app/Core/
 
 
 # ========== Specific config files ==========

@@ -1,39 +1,30 @@
 export default class App {
   constructor() {
-    // this.instanceScript();
+    // this.#instanceScript();
+    console.info("oke");
   }
 
-  detectScript() {
+  #getUrlParts() {
     const currentUrl = window.location.href;
-    const path = currentUrl.replace(App.baseUrl, "");
-    return path.split("/").map((part) => part.capitalize());
+    const path = currentUrl.replace(window.path.root, "").split("/");
+    return path.map((part) => part.capitalFirst());
   }
 
-  getScriptPath() {
-    const baseUrl = App.baseUrl + "public/js/app/script/";
-    const parts = this.detectScript();
-    const fileName = parts[0] + (parts[1] ?? "") + ".js";
-
-    return baseUrl + fileName;
+  #detectScript() {
+    const urlParts = this.#getUrlParts();
+    const fileName = urlParts[0] + (urlParts[1] ?? "s") + ".js";
+    return window.path.script + fileName;
   }
 
-  getFallbackScriptPath() {
-    const baseUrl = App.baseUrl + "public/js/app/script/";
-    const filename = this.detectScript()[0] + ".js";
-    return baseUrl + filename;
-  }
+  async #instanceScript() {
+    const detectedScript = this.#detectScript();
+    const fallbackScript = window.path.fallbackScriptFile;
 
-  async instanceScript() {
-    const url = this.getScriptPath();
-
-    const fallbackUrl = this.getFallbackScriptPath();
     try {
-      const Url = await fetch(url, { method: "HEAD" });
-      if (!Url.ok) throw new Error("invalid url");
-      const Script = await import(url);
-      console.info(Script);
+      const { default: Script } = await import(detectedScript.bustCache());
+      new Script();
     } catch (error) {
-      console.error(url + error);
+      console.warn("Woops " + error);
     }
   }
 }
