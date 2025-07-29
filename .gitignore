@@ -13,6 +13,7 @@ pertemuan21/public/js/*
 !pertemuan21/public/js/app/
 pertemuan21/public/js/app/*
 !pertemuan21/public/js/app/modules/
+pertemuan21/public/js/app/modules/helper.js
 
 # ========== kecuali app/helper/ and app/helper/ ==========
 

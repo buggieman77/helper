@@ -48,10 +48,3 @@ export const getPrimaryKey = (button) => {
 
   return primaryKey;
 };
-
-export const getModules = async () => {
-  const modules = await import(
-    "http://localhost/tutorial/pertemuan21/public/js/app/modules/init.js"
-  );
-  return modules;
-};

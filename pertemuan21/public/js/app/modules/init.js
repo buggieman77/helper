@@ -7,7 +7,12 @@ const NovelHelper = { createLoader, createAlert, getPrimaryKey };
 const AjaxHelper = { createAlert };
 
 window.getBaseUrl = App.baseUrl;
-window.getModules = Helper.getModules;
+window.getModules = async () => {
+  const modules = await import(
+    "http://localhost/tutorial/pertemuan21/public/js/app/modules/init.js"
+  );
+  return modules;
+};
 
 export default App;
 export { App, Ajax, NovelHelper, AjaxHelper };
