@@ -12,14 +12,16 @@ pertemuan21/public/*
 !pertemuan21/app/
 pertemuan21/app/*
 
-!pertemuan21app/helper/
-!pertemuan21app/core/
+!pertemuan21/app/helper/
+!pertemuan21/app/core/
 
 !pertemuan21/public/js/
 pertemuan21/public/js/*
 !pertemuan21/public/js/script.js
+
 !pertemuan21/public/js/app/
 pertemuan21/public/js/app/*
+
 !pertemuan21/public/js/app/modules/
 pertemuan21/public/js/app/modules/helper.js
 
