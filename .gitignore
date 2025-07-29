@@ -8,6 +8,13 @@ pertemuan21/*
 
 !pertemuan21/public/
 pertemuan21/public/*
+
+!pertemuan21/app/
+pertemuan21/app/*
+
+!pertemuan21app/helper/
+!pertemuan21app/core/
+
 !pertemuan21/public/js/
 pertemuan21/public/js/*
 !pertemuan21/public/js/script.js
@@ -18,10 +25,8 @@ pertemuan21/public/js/app/modules/helper.js
 
 # ========== kecuali app/helper/ and app/helper/ ==========
 
-!pertemuan21/app/
-pertemuan21/app/*
-!pertemuan21app/helper/
-!pertemuan21app/core/
+
+
 
 
 # ========== Specific config files ==========
