@@ -1,0 +1,43 @@
+# Aktifkan modul Rewrite Apache
+RewriteEngine On
+
+# Base Init
+RewriteBase /tutorial/pertemuan21/
+
+# Nonaktifkan Directory Listing
+Options -Indexes
+
+# Nonaktifkan MultiViews
+Options -MultiViews
+
+# ======================== STATIC FILE EXCEPTIONS ========================
+# Jangan rewrite untuk file statis (js, css, gambar)
+RewriteCond %{REQUEST_URI} \.(js|css|png|jpg|jpeg|gif|ico|svg|webp|json|map)$ [NC]
+RewriteRule ^ - [L]
+
+# ======================== ENTRY POINT ========================
+# Entry Point Alias
+RewriteRule ^mvc/?(.*)$ public/?url=$1 [L]
+
+# Jika URL kosong (masuk ke /pertemuan21/) Redirect ke /public/index.php
+RewriteRule ^$ mvc [L]
+
+# ======================== CONDITION ========================
+
+# Tangani 403 Forbidden
+ErrorDocument 403 /tutorial/pertemuan21/mvc
+
+# Cek jika request mengandung
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*?/(app) [NC]
+RewriteRule ^.*/?$ mvc [R=302,L]
+
+# Kondisi: jika directory tidak ada.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Kondisi: jika tidak file ada.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redirect Jika Gada folder yang atau file yang cocok
+RewriteRule ^(public/)?(.*)$ mvc/$2 [L]
+
+
