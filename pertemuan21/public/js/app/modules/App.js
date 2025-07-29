@@ -7,10 +7,6 @@ export default class App {
     this.instanceScript();
   }
 
-  static get baseUrl() {
-    return "http://localhost/tutorial/pertemuan21/";
-  }
-
   detectScript() {
     const currentUrl = window.location.href;
     const path = currentUrl.replace(App.baseUrl, "");
@@ -33,15 +29,15 @@ export default class App {
 
   async instanceScript() {
     const url = this.getScriptPath();
+
     const fallbackUrl = this.getFallbackScriptPath();
-    const isExist = await fetch(url, { method: "HEAD" });
-    if (isExist.ok) {
-      const { default: Script } = await import(url);
-      return new Script();
-    } else {
-      console.warn(isExist.status + " : Url is not found");
-      const { default: Script } = await import(fallbackUrl);
-      return new Script();
+    try {
+      const Url = await fetch(url, { method: "HEAD" });
+      if (!Url.ok) throw new Error("invalid url");
+      const Script = await import(url);
+      console.info(Script);
+    } catch (error) {
+      console.error(url + error);
     }
   }
 }

@@ -10,6 +10,7 @@ pertemuan21/*
 pertemuan21/public/*
 !pertemuan21/public/js/
 pertemuan21/public/js/*
+!pertemuan21/public/js/script.js
 !pertemuan21/public/js/app/
 pertemuan21/public/js/app/*
 !pertemuan21/public/js/app/modules/
